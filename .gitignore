@@ -1,0 +1,77 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# Testing
+coverage
+
+# Next.js
+.next/
+out/
+
+# Production
+build
+dist
+
+# Supabase
+
+# Misc
+.DS_Store
+*.pem
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Local env files
+.env
+.env*.local
+.env.*
+# !.env.sentry-build-plugin
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# IDEs and editors
+.idea
+.vscode
+.cache
+
+# Lock files
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+pnpm-workspace.yaml
+bun.lockb
+
+# Million.js
+.million
+
+# Service workers
+service-worker*.js
+service-worker*.js.map
+swe-worker-development.js
+workbox-*.js
+workbox-*.js.map
+sw.js
+sw.js.*
+
+# Analysis
+analyze/
+
+# Storybook
+storybook-static
+*storybook.log
+
+# Plasmo
+.plasmo

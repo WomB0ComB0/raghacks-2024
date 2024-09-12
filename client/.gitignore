@@ -1,0 +1,4 @@
+
+/.npm-only-allow
+# Sentry Config File
+.env.sentry-build-plugin

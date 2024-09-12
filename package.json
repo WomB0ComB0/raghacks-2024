@@ -1,0 +1,23 @@
+{
+  "name": "full-stack-template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint . --max-warnings 0",
+    "lint:knip": "knip",
+    "lint:md": "markdownlint \"**/*.md\" \".github/**/*.md\" --rules sentences-per-line",
+    "lint:packages": "pnpm dedupe --check",
+    "lint:spelling": "cspell \"**\" \".github/**/*\""
+  },
+  "keywords": [],
+  "author": "",
+
+  "description": "",
+  "dependencies": {
+    "concurrently": "^8.2.2",
+    "vercel": "^37.4.0"
+  },
+  "lint-staged": {
+    "*": "prettier --ignore-unknown --write"
+  }
+}

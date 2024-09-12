@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Next.js",
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "downlevelIteration": true,
+    "baseUrl": ".",
+    "types": [
+      "node"
+    ],
+    "paths": {
+      "@testing": [
+        "./test-fixtures.ts"
+      ],
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.mjs",
+    "jest.config.js",
+    ".next/types/**/*.ts",
+    "custom.d.ts"
+, "next.config.js", "tailwind.config.js"  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ]
+}
