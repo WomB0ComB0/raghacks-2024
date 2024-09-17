@@ -25,7 +25,7 @@ import {
   Utensils,
 } from 'lucide-react';
 import { marked } from 'marked';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { toast } from 'sonner';
 import { z } from 'zod';
 
@@ -44,41 +44,48 @@ const poiSchema = z.object({
 
 export default function ProximityFinder() {
   const [poiType, setPoiType] = useState<string>('cafe');
+  const [userLocation, setUserLocation] = useState<{ latitude: number; longitude: number } | null>(null);
   const queryClient = useQueryClient();
 
-  const {
-    data: coordinates,
-    error: coordinatesError,
-    isLoading: isLoadingCoordinates,
-    refetch: refetchCoordinates,
-  } = useQuery({
-    queryKey: ['coordinates'],
-    queryFn: async () => {
-      const response = await fetch(`${API_URL}/coordinates/`);
-      const data = await response.json();
-      return coordinatesSchema.parse(data);
-    },
-  });
+  useEffect(() => {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setUserLocation({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          });
+        },
+        (error) => {
+          console.error("Error getting user location:", error);
+          toast.error("Failed to get your location. Using default location.");
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+      toast.error("Geolocation is not supported. Using default location.");
+    }
+  }, []);
 
   const {
     data: poi,
     error: poiError,
     isLoading: isLoadingPoi,
   } = useQuery({
-    queryKey: ['poi', poiType, coordinates],
+    queryKey: ['poi', poiType, userLocation],
     queryFn: async () => {
-      if (!coordinates) return null;
+      if (!userLocation) return null;
       const response = await fetch(
-        `${API_URL}/poi/?latitude=${coordinates.latitude}&longitude=${coordinates.longitude}&poi_type=${poiType}`,
+        `${API_URL}/poi/?latitude=${userLocation.latitude}&longitude=${userLocation.longitude}&poi_type=${poiType}`,
       );
       const data = await response.json();
       return poiSchema.parse(data);
     },
-    enabled: !!coordinates,
+    enabled: !!userLocation,
   });
 
-  const isLoading = isLoadingCoordinates || isLoadingPoi;
-  const error = coordinatesError || poiError;
+  const isLoading = !userLocation || isLoadingPoi;
+  const error = poiError;
 
   const getPoiIcon = (type: string) => {
     switch (type) {
@@ -153,7 +160,10 @@ export default function ProximityFinder() {
           <AlertTriangle className="w-4 h-4" />
           <AlertTitle>Error</AlertTitle>
           <AlertDescription>{(error as Error).message}</AlertDescription>
-          <Button variant="outline" size="sm" onClick={() => refetchCoordinates()} className="mt-2">
+          <Button variant="outline" size="sm" onClick={() => {
+            setUserLocation(null);
+            queryClient.invalidateQueries({ queryKey: ['poi'] });
+          }} className="mt-2">
             <RefreshCw className="w-4 h-4 mr-2" /> Retry
           </Button>
         </Alert>
@@ -165,7 +175,7 @@ export default function ProximityFinder() {
         </div>
       ) : (
         <>
-          {coordinates && (
+          {userLocation && (
             <div className="w-full max-w-md mt-6">
               <h2 className="flex items-center mb-2 text-xl font-semibold text-[#32A8C3]">
                 <MapPin className="w-5 h-5 mr-2" />
@@ -173,7 +183,7 @@ export default function ProximityFinder() {
               </h2>
               <p className="flex items-center justify-between text-lg">
                 <span>
-                  {coordinates.latitude.toFixed(4)}, {coordinates.longitude.toFixed(4)}
+                  {userLocation.latitude.toFixed(4)}, {userLocation.longitude.toFixed(4)}
                 </span>
                 <span className="flex">
                   <Button
@@ -181,7 +191,7 @@ export default function ProximityFinder() {
                     size="sm"
                     onClick={() =>
                       copyToClipboard(
-                        `${coordinates.latitude.toFixed(4)}, ${coordinates.longitude.toFixed(4)}`,
+                        `${userLocation.latitude.toFixed(4)}, ${userLocation.longitude.toFixed(4)}`,
                       )
                     }
                     className="mr-2 text-white"
@@ -193,7 +203,7 @@ export default function ProximityFinder() {
                     size="sm"
                     onClick={() =>
                       window.open(
-                        getBingMapsLink(coordinates.latitude, coordinates.longitude),
+                        getBingMapsLink(userLocation.latitude, userLocation.longitude),
                         '_blank',
                       )
                     }
