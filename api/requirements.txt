@@ -1,9 +1,5 @@
-transformers==4.43.2
-sentence-transformers==3.0.1
-unstructured==0.15.0
-unstructured[pdf]==0.15.0
-fastapi==0.114.2
-pydantic
+fastapi==0.95.2
+pydantic<2.0.0
 geocoder==1.38.1
 python-dotenv==1.0.1
 azure-mgmt-compute>=1.0.0,<2.0.0
@@ -13,7 +9,8 @@ azure-keyvault-secrets>=4.0.0
 azure-storage-blob>=1.0.0,<2.0.0
 azure-maps-search==2.0.0b1
 azure-core==1.31.0
-fastapi[standard]
-pytest
 httpx
+groq
+pytest
 pytest-asyncio==0.23.5
+uvicorn

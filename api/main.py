@@ -9,9 +9,7 @@ from azure.core.credentials import AzureKeyCredential
 from groq import Groq
 import httpx
 
-load_dotenv(
-    dotenv_path=".env",
-)
+load_dotenv(dotenv_path="../.env")
 
 LLAMA_API_KEY = os.getenv("LLAMA_KEY")
 LLAMA_DEPLOYMENT = os.getenv("LLAMA_DEPLOYMENT_VERSION")
@@ -52,6 +50,11 @@ async def get_poi(latitude: float, longitude: float, poi_type: str):
         return result
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
 
 
 async def search_poi(location, poi_type):

@@ -1,4 +1,7 @@
 {
+  "projectSettings": {
+    "name": "api"
+  },
   "builds": [
     {
       "src": "main.py",
