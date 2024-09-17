@@ -11,7 +11,6 @@ const pwa = require('@ducanh2912/next-pwa').default({
 });
 
 const MillionLint = require('@million/lint');
-const { withSentryConfig } = require('@sentry/nextjs');
 
 /**
  * @type {import('next').NextConfig}
@@ -117,17 +116,4 @@ const finalConfig = withPlugins([
   [withMillion],
 ], config)
 
-module.exports = withSentryConfig(withSentryConfig(finalConfig, {
-  org: "womb0comb0",
-  project: "full-stack-template",
-  sentryUrl: "https://sentry.io/",
-  silent: !process.env.CI,
-  widenClientFileUpload: true,
-  reactComponentAnnotation: {
-    enabled: true,
-  },
-  tunnelRoute: "/monitoring",
-  hideSourceMaps: true,
-  disableLogger: true,
-  automaticVercelMonitors: true,
-}));
+module.exports = finalConfig

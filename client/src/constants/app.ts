@@ -4,9 +4,9 @@ export const app: Readonly<{
   email: string;
   description: string;
 }> = {
-  name: 'MediGlossary',
-  url: 'https://full-stack-template.vercel.app/',
+  name: 'ProximityFinder',
+  url: 'https://proximity-finder.vercel.app/',
   email: 'mikeodnis3242004@gmail.com',
   description:
-    'MediGlossary is an instant medical term lookup app that helps users quickly understand complex health-related terminology. It provides definitions and answers to medical questions, making health information more accessible to everyone.',
+    'ProximityFinder is an application that helps users discover nearby points of interest based on their current location. It provides quick and easy access to information about restaurants, cafes, parks, and other local attractions.',
 };

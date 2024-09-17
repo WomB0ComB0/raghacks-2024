@@ -10,7 +10,7 @@ module.exports = {
   content: [
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
-	],
+  ],
   module: {
     rules: [
       {
@@ -35,11 +35,11 @@ module.exports = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#13486e",
+          DEFAULT: "#32A8C3",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "#002c55",
+          DEFAULT: "#07073A",
           foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {

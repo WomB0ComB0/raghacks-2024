@@ -1,6 +1,6 @@
+import '@/styles/globals.css'
 import { Providers } from '@/providers';
 import { constructMetadata, constructViewport } from '@/utils';
-import '@/styles/globals.css';
 
 import type { NextWebVitalsMetric } from 'next/app';
 
@@ -25,7 +25,7 @@ export default function RootLayout({
       data-a11y-link-underlines="false"
       data-turbo-loaded
     >
-      <body className={`bg-white overflow-x-hidden`}>
+      <body className={`overflow-x-hidden`}>
         <Providers>{children}</Providers>
       </body>
     </html>

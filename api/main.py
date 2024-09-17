@@ -9,7 +9,7 @@ from azure.core.credentials import AzureKeyCredential
 from groq import Groq
 import httpx
 
-load_dotenv(dotenv_path="../.env")
+load_dotenv(dotenv_path=".env")
 
 LLAMA_API_KEY = os.getenv("LLAMA_KEY")
 LLAMA_DEPLOYMENT = os.getenv("LLAMA_DEPLOYMENT_VERSION")
@@ -101,12 +101,7 @@ async def process_query(query):
         temperature=1,
         max_tokens=300,
         top_p=1,
-        stream=True,
+        stream=False,
         stop=None,
     )
-    chunks = await completion
-    return "".join(
-        chunk.choices[0].delta.content
-        for chunk in chunks
-        if chunk.choices[0].delta.content
-    )
+    return completion.choices[0].message.content

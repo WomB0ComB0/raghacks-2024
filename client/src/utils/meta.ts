@@ -71,8 +71,8 @@ export function constructViewport(): Viewport {
     viewportFit: 'cover',
     interactiveWidget: 'resizes-visual',
     themeColor: [
-      { media: '(prefers-color-scheme: light)', color: '#13486e' },
-      { media: '(prefers-color-scheme: dark)', color: '#002c55' },
+      { media: '(prefers-color-scheme: light)', color: '#32A8C3' },
+      { media: '(prefers-color-scheme: dark)', color: '#07073A' },
     ],
     colorScheme: 'dark light',
   };

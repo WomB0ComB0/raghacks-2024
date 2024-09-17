@@ -1,7 +1,3 @@
-import type { Tables } from '@/types/supabase';
-
-type Price = Tables<'prices'>;
-
 export const Slugify = (text: string) => {
   return text
     .toLowerCase()
@@ -54,23 +50,6 @@ export const getURL = (path = ''): string => {
 
   // Concatenate the URL and the path.
   return path ? `${url}/${path}` : url;
-};
-
-export const postData = async ({
-  url,
-  data,
-}: {
-  url: string;
-  data?: { price: Price };
-}) => {
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: new Headers({ 'Content-Type': 'application/json' }),
-    credentials: 'same-origin',
-    body: JSON.stringify(data),
-  });
-
-  return res.json();
 };
 
 export const toDateTime = (secs: number) => {
