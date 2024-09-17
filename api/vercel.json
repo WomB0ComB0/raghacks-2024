@@ -1,7 +1,4 @@
 {
-  "projectSettings": {
-    "name": "proximity-finder-api"
-  },
   "builds": [
     {
       "src": "main.py",
