@@ -14,6 +14,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/legal'],
       },
     ],
-    sitemap: `https://full-stack-template.vercel.app/sitemap.xml`,
+    sitemap: `https://raghacks-2024.vercel.app/sitemap.xml`,
   };
 }

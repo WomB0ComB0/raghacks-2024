@@ -5,7 +5,7 @@ export const app: Readonly<{
   description: string;
 }> = {
   name: 'ProximityFinder',
-  url: 'https://proximity-finder.vercel.app/',
+  url: 'https://raghacks-2024.vercel.app/',
   email: 'mikeodnis3242004@gmail.com',
   description:
     'ProximityFinder is an application that helps users discover nearby points of interest based on their current location. It provides quick and easy access to information about restaurants, cafes, parks, and other local attractions.',
