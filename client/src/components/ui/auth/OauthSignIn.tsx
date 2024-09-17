@@ -1,11 +1,11 @@
 'use client';
 
-import { Button } from '../custom';
 import { signInWithOAuth } from '@/utils/auth/client';
 import type { Provider } from '@supabase/supabase-js';
 import { useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { toast } from 'sonner';
+import { Button } from '../custom';
 import { Input } from '../input';
 
 type OAuthProviders = {

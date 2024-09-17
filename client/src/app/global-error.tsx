@@ -12,7 +12,7 @@ export default function GlobalError({
   reset: () => void;
 }) {
   useIsomorphicLayoutEffect(() => {
-    console.log(error)
+    console.log(error);
   }, [error]);
 
   return (

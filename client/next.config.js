@@ -1,5 +1,5 @@
-const withBundleAnalyzer = require("@next/bundle-analyzer");
-const withPlugins = require("next-compose-plugins");
+const withBundleAnalyzer = require('@next/bundle-analyzer');
+const withPlugins = require('next-compose-plugins');
 const pwa = require('@ducanh2912/next-pwa').default({
   dest: 'public',
   disable: false,
@@ -7,7 +7,7 @@ const pwa = require('@ducanh2912/next-pwa').default({
   skipWaiting: true,
   sw: '/sw.js',
   publicExcludes: ['!noprecache/**/*'],
-  buildExcludes: [/middleware-manifest\.json$/]
+  buildExcludes: [/middleware-manifest\.json$/],
 });
 
 const MillionLint = require('@million/lint');
@@ -48,11 +48,11 @@ const config = {
   },
   rewrites() {
     return [
-      { source: "/healthz", destination: "/api/health" },
-      { source: "/api/healthz", destination: "/api/health" },
-      { source: "/health", destination: "/api/health" },
-      { source: "/ping", destination: "/api/health" },
-    ]
+      { source: '/healthz', destination: '/api/health' },
+      { source: '/api/healthz', destination: '/api/health' },
+      { source: '/health', destination: '/api/health' },
+      { source: '/ping', destination: '/api/health' },
+    ];
   },
   async headers() {
     return [
@@ -101,19 +101,18 @@ const config = {
   publicRuntimeConfig: {
     basePath: '',
   },
-}
+};
 
 const withMillion = MillionLint.next({
   rsc: true,
   filter: {
     include: '**/components/*.{mtsx,mjsx,tsx,jsx}',
   },
-})
+});
 
-const finalConfig = withPlugins([
-  [withBundleAnalyzer({ enabled: process.env.ANALYZE })],
-  [pwa],
-  [withMillion],
-], config)
+const finalConfig = withPlugins(
+  [[withBundleAnalyzer({ enabled: process.env.ANALYZE })], [pwa], [withMillion]],
+  config,
+);
 
-module.exports = finalConfig
+module.exports = finalConfig;

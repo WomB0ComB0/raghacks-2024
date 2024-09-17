@@ -1,13 +1,5 @@
 'use client';
 
-import {
-  EmailSignIn,
-  ForgotPassword,
-  OauthSignIn,
-  PasswordSignIn,
-  SignUp,
-  UpdatePassword,
-} from '../../../../components/ui/auth';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
@@ -22,6 +14,14 @@ import { AlertCircle } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import {
+  EmailSignIn,
+  ForgotPassword,
+  OauthSignIn,
+  PasswordSignIn,
+  SignUp,
+  UpdatePassword,
+} from '../../../../components/ui/auth';
 
 export default function SignIn({
   params,

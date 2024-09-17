@@ -1,5 +1,5 @@
-import { registerOTel } from "@vercel/otel"
+import { registerOTel } from '@vercel/otel';
 
 export const register = async () => {
-  registerOTel({ serviceName: "proximity-finder" })
-}
+  registerOTel({ serviceName: 'proximity-finder' });
+};

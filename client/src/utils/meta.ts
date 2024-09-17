@@ -1,4 +1,4 @@
-import { app } from '@/constants';  
+import { app } from '@/constants';
 import type { Metadata, Viewport } from 'next';
 
 export function constructMetadata({

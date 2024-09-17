@@ -5,8 +5,8 @@ import type React from 'react';
 import { type ButtonHTMLAttributes, forwardRef, useRef } from 'react';
 import { mergeRefs } from 'react-merge-refs';
 
-import styles from './Button.module.css';
 import { LoadingSpinner } from '@/components/ui';
+import styles from './Button.module.css';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'slim' | 'flat';

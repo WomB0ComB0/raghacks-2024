@@ -1,12 +1,12 @@
 'use client';
 
-import { Button } from '../custom';
 import { handleRequest } from '@/utils/auth/client';
 import { updatePassword } from '@/utils/auth/server';
 import { useRouter } from 'next/navigation';
 import type React from 'react';
 import { useState } from 'react';
 import { toast } from 'sonner';
+import { Button } from '../custom';
 import { Input } from '../input';
 import { Label } from '../label';
 

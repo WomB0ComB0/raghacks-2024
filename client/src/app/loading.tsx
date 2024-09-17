@@ -1,7 +1,7 @@
 'use client';
 import { LoadingSpinner } from '@/components';
-import React from 'react';
 import { CenterLayout } from '@/components';
+import React from 'react';
 const Loading = React.memo(() => {
   return (
     <>

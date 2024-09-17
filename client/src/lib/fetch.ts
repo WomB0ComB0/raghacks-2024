@@ -1,4 +1,6 @@
-export async function getSearchResults(searchParams: string): Promise<SearchQueryResult[] | undefined> {
+export async function getSearchResults(
+  searchParams: string,
+): Promise<SearchQueryResult[] | undefined> {
   if (searchParams === '') return undefined;
   try {
     const res = await fetch(
@@ -8,7 +10,7 @@ export async function getSearchResults(searchParams: string): Promise<SearchQuer
       throw new Error(`HTTP error! Status: ${res.status}`);
     }
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const data: SearchQueryResult[] = await res.json() as SearchQueryResult[];
+    const data: SearchQueryResult[] = (await res.json()) as SearchQueryResult[];
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return data || [];
   } catch (error) {

@@ -1,8 +1,8 @@
-import React from 'react'
-import { AlertCircle, ArrowLeft } from 'lucide-react'
-import { Button } from "@/components/ui/button"
+import { Button } from '@/components/ui/button';
+import { AlertCircle, ArrowLeft } from 'lucide-react';
+import React from 'react';
 
-export const runtime = 'edge'
+export const runtime = 'edge';
 
 export default function AuthErrorPage() {
   return (
@@ -14,14 +14,15 @@ export default function AuthErrorPage() {
           </div>
           <h1 className="mb-4 text-2xl font-bold text-center">Authentication Error</h1>
           <p className="mb-6 text-center text-muted-foreground">
-            We're sorry, but there was an issue authenticating your account. This could be due to an expired session or invalid credentials.
+            We're sorry, but there was an issue authenticating your account. This could be due to an
+            expired session or invalid credentials.
           </p>
           <div className="space-y-4">
             <Button variant="outline" className="w-full" onClick={() => window.history.back()}>
               <ArrowLeft className="w-4 h-4 mr-2" />
               Go Back
             </Button>
-            <Button className="w-full" onClick={() => window.location.href = '/signin'}>
+            <Button className="w-full" onClick={() => (window.location.href = '/signin')}>
               Try Again
             </Button>
           </div>
@@ -31,5 +32,5 @@ export default function AuthErrorPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

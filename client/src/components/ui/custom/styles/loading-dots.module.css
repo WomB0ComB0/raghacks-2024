@@ -17,7 +17,8 @@
 }
 
 @keyframes blink {
-  from, to {
+  from,
+  to {
     opacity: 0.2;
   }
   50% {

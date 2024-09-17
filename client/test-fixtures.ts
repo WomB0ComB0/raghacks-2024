@@ -20,7 +20,7 @@ export const test = base.extend<
   //@ts-ignore
   page: async ({ baseURL, page }, use, testInfo) => {
     const testFilePath = testInfo.titlePath[0];
-    
+
     const fileName = testFilePath ? testFilePath.replace('.spec.ts', '') : '';
 
     const url = `${baseURL}${fileName}`;
