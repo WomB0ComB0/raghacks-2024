@@ -75,3 +75,14 @@ storybook-static
 
 # Plasmo
 .plasmo
+
+env
+venv
+.venv
+
+__pycache__
+
+# Python testing
+.pytest_cache
+*.pyc
+__pycache__
