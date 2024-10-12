@@ -11,10 +11,10 @@ import httpx
 
 load_dotenv(dotenv_path=".env")
 
-LLAMA_API_KEY = os.getenv("LLAMA_KEY")
-LLAMA_DEPLOYMENT = os.getenv("LLAMA_DEPLOYMENT_VERSION")
-AZURE_MAPS_KEY = os.getenv("AZURE_MAPS_KEY")
-AZURE_ENDPOINT = os.getenv("AZURE_ENDPOINT", "https://atlas.microsoft.com/")
+# LLAMA_API_KEY = os.getenv("LLAMA_KEY")
+# LLAMA_DEPLOYMENT = os.getenv("LLAMA_DEPLOYMENT_VERSION")
+# AZURE_MAPS_KEY = os.getenv("AZURE_MAPS_KEY")
+#AZURE_ENDPOINT = os.getenv("AZURE_ENDPOINT", "https://atlas.microsoft.com/")
 
 # Clients
 llama_client = Groq(api_key=LLAMA_API_KEY)
